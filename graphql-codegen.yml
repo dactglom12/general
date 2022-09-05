@@ -1,0 +1,21 @@
+schema: "src/graphql/schema.js"
+documents:
+  - "src/**/*.{ts, tsx}"
+  - "!src/**/*-graphql.tsx"
+generates:
+  src/base-graphql.ts:
+    plugins:
+      - typescript
+      - fragment-matcher
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: -graphql.tsx
+      baseTypesPath: base-graphql.ts
+    plugins:
+      - typescript-operations
+      - typescript-react-apollo
+hooks:
+  afterOneFileWrite:
+    - prettier --write
+overwrite: true
