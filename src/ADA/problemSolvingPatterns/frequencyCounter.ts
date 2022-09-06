@@ -27,4 +27,4 @@ const isValidAnagram = (str1: string, str2: string) => {
   return true;
 };
 
-console.log(isValidAnagram("iceman", "cinemk"));
+console.log(isValidAnagram('iceman', 'cinemk'));

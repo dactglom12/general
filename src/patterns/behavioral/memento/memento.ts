@@ -26,11 +26,11 @@ class Originator {
   }
 
   private generateRandomString(length: number = 10): string {
-    const charSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const charSet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     return Array.apply(null, { length })
       .map(() => charSet.charAt(Math.floor(Math.random() * charSet.length)))
-      .join("");
+      .join('');
   }
 
   /**
@@ -71,7 +71,7 @@ class ConcreteMemento implements Memento {
 
   constructor(state: string) {
     this.state = state;
-    this.date = new Date().toISOString().slice(0, 19).replace("T", " ");
+    this.date = new Date().toISOString().slice(0, 19).replace('T', ' ');
   }
 
   /**
@@ -133,7 +133,7 @@ class Caretaker {
 /**
  * Клиентский код.
  */
-const originator = new Originator("Super-duper-super-puper-super.");
+const originator = new Originator('Super-duper-super-puper-super.');
 const caretaker = new Caretaker(originator);
 
 caretaker.backup();
@@ -145,11 +145,11 @@ originator.doSomething();
 caretaker.backup();
 originator.doSomething();
 
-console.log("");
+console.log('');
 caretaker.showHistory();
 
 console.log("\nClient: Now, let's rollback!\n");
 caretaker.undo();
 
-console.log("\nClient: Once more!\n");
+console.log('\nClient: Once more!\n');
 caretaker.undo();

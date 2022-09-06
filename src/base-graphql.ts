@@ -19,7 +19,7 @@ export type Scalars = {
 };
 
 export type Mutation = {
-  __typename?: "Mutation";
+  __typename?: 'Mutation';
   addTest?: Maybe<Test>;
 };
 
@@ -28,18 +28,18 @@ export type MutationAddTestArgs = {
 };
 
 export type Query = {
-  __typename?: "Query";
+  __typename?: 'Query';
   getTest?: Maybe<Test>;
 };
 
 export type Test = {
-  __typename?: "Test";
-  optionalField?: Maybe<Scalars["String"]>;
-  requiredField: Scalars["String"];
+  __typename?: 'Test';
+  optionalField?: Maybe<Scalars['String']>;
+  requiredField: Scalars['String'];
 };
 
 export type TestInput = {
-  anyField?: InputMaybe<Scalars["String"]>;
+  anyField?: InputMaybe<Scalars['String']>;
 };
 
 export interface PossibleTypesResultData {

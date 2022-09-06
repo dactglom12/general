@@ -1,8 +1,8 @@
-import React from "react";
-import { mainRoutingConstants } from "./constants";
-import { HomePage } from "../pages/Home/Home";
-import { NotFoundPage } from "../pages/404/404";
-import { Route } from "react-router";
+import React from 'react';
+import { mainRoutingConstants } from './constants';
+import { HomePage } from '../pages/Home/Home';
+import { NotFoundPage } from '../pages/404/404';
+import { Route } from 'react-router';
 
 interface IRoute {
   path: string;
@@ -11,7 +11,7 @@ interface IRoute {
 }
 
 const notFoundRoute: IRoute = {
-  path: "*",
+  path: '*',
   render: (props) => <NotFoundPage {...props} />,
 };
 

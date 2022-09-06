@@ -1,1 +1,1 @@
-import "./frequencyCounter";
+import './frequencyCounter';

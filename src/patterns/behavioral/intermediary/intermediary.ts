@@ -1,6 +1,6 @@
 enum CommandTypes {
-  CLICK = "click",
-  DOUBLE_CLICK = "double_click",
+  CLICK = 'click',
+  DOUBLE_CLICK = 'double_click',
 }
 
 interface Intermediary {
@@ -21,21 +21,21 @@ class SpecificIntermediary implements Intermediary {
   notify(sender, type) {
     if (sender instanceof Button) {
       if (type === CommandTypes.CLICK) {
-        this.checkbox.reactTo("button click");
+        this.checkbox.reactTo('button click');
       }
 
       if (type === CommandTypes.DOUBLE_CLICK) {
-        this.checkbox.reactTo("button double click");
+        this.checkbox.reactTo('button double click');
       }
     }
 
     if (sender instanceof Checkbox) {
       if (type === CommandTypes.CLICK) {
-        this.button.reactTo("checkbox click");
+        this.button.reactTo('checkbox click');
       }
 
       if (type === CommandTypes.DOUBLE_CLICK) {
-        this.button.reactTo("checkbox double click");
+        this.button.reactTo('checkbox double click');
       }
     }
   }
@@ -83,8 +83,8 @@ class Button extends BaseElement {}
 
 class Checkbox extends BaseElement {}
 
-const button = new Button().setName("First Button");
-const checkbox = new Checkbox().setName("First Checkbox");
+const button = new Button().setName('First Button');
+const checkbox = new Checkbox().setName('First Checkbox');
 
 const intermediary = new SpecificIntermediary(button, checkbox);
 

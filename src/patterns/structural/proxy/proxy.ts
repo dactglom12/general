@@ -4,7 +4,7 @@ interface Service {
 
 class RealService implements Service {
   request() {
-    console.log("Real request");
+    console.log('Real request');
   }
 }
 
@@ -23,7 +23,7 @@ class ProxyService implements Service {
   }
 
   extraLog() {
-    console.log("Logging");
+    console.log('Logging');
   }
 
   checkAccess() {

@@ -1,7 +1,7 @@
-import { call, put, takeEvery } from "redux-saga/effects";
-import { ArticlesApi } from "../../api/articlesApi";
-import { GET_ARTICLES_ACTION_TYPE } from "./actions";
-import { getArticlesFailure, getArticlesSuccess, getArticles } from "./slice";
+import { call, put, takeEvery } from 'redux-saga/effects';
+import { ArticlesApi } from '../../api/articlesApi';
+import { GET_ARTICLES_ACTION_TYPE } from './actions';
+import { getArticlesFailure, getArticlesSuccess, getArticles } from './slice';
 
 export function* fetchArticles(action) {
   try {
@@ -12,7 +12,7 @@ export function* fetchArticles(action) {
     });
 
     yield put(
-      getArticlesSuccess({ articles: response.data.articles.slice(0, 3) })
+      getArticlesSuccess({ articles: response.data.articles.slice(0, 3) }),
     );
   } catch (err) {
     yield put(getArticlesFailure({ error: err }));

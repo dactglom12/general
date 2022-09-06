@@ -1,14 +1,14 @@
-import * as Types from "../base-graphql";
+import * as Types from '../base-graphql';
 
-import { gql } from "@apollo/client";
-import * as Apollo from "@apollo/client";
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 const defaultOptions = {};
 export type GetTestQueryVariables = Types.Exact<{ [key: string]: never }>;
 
 export type GetTestQuery = {
-  __typename?: "Query";
+  __typename?: 'Query';
   getTest?:
-    | { __typename?: "Test"; optionalField?: string | null | undefined }
+    | { __typename?: 'Test'; optionalField?: string | null | undefined }
     | null
     | undefined;
 };
@@ -18,9 +18,9 @@ export type AddTestMutationVariables = Types.Exact<{
 }>;
 
 export type AddTestMutation = {
-  __typename?: "Mutation";
+  __typename?: 'Mutation';
   addTest?:
-    | { __typename?: "Test"; optionalField?: string | null | undefined }
+    | { __typename?: 'Test'; optionalField?: string | null | undefined }
     | null
     | undefined;
 };
@@ -49,21 +49,24 @@ export const GetTestDocument = gql`
  * });
  */
 export function useGetTestQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetTestQuery, GetTestQueryVariables>
+  baseOptions?: Apollo.QueryHookOptions<GetTestQuery, GetTestQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetTestQuery, GetTestQueryVariables>(
     GetTestDocument,
-    options
+    options,
   );
 }
 export function useGetTestLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetTestQuery, GetTestQueryVariables>
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetTestQuery,
+    GetTestQueryVariables
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<GetTestQuery, GetTestQueryVariables>(
     GetTestDocument,
-    options
+    options,
   );
 }
 export type GetTestQueryHookResult = ReturnType<typeof useGetTestQuery>;
@@ -105,12 +108,12 @@ export function useAddTestMutation(
   baseOptions?: Apollo.MutationHookOptions<
     AddTestMutation,
     AddTestMutationVariables
-  >
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useMutation<AddTestMutation, AddTestMutationVariables>(
     AddTestDocument,
-    options
+    options,
   );
 }
 export type AddTestMutationHookResult = ReturnType<typeof useAddTestMutation>;

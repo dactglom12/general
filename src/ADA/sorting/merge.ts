@@ -36,4 +36,4 @@ const mergeSort = (array: number[]): number[] => {
   const right = mergeSort(array.slice(middle));
 
   return merge(left, right);
-}
+};

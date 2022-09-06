@@ -1,7 +1,7 @@
-import { useCallback } from "react";
-import { useHistory } from "react-router";
-import { FilterStateEntry } from "../shared/interfaces";
-import { appendSearchParamsToCurrent } from "../utils/urlUtils";
+import { useCallback } from 'react';
+import { useHistory } from 'react-router';
+import { FilterStateEntry } from '../shared/interfaces';
+import { appendSearchParamsToCurrent } from '../utils/urlUtils';
 
 export const getOnlyNonNullFilters = (filters: FilterStateEntry) =>
   Object.entries(filters).reduce((obj, [key, value]) => {
@@ -22,7 +22,7 @@ export const useUrlParamsManager = () => {
         history.push({ search: `?${newParams}` });
       }
     },
-    [history]
+    [history],
   );
 
   return {

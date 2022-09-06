@@ -1,23 +1,23 @@
-import React, { useCallback, useState } from "react";
-import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { FilterComponent } from "../../components/Filter/Filter";
-import { getArticles } from "../../store/articles/actions";
+import React, { useCallback, useState } from 'react';
+import { Button } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { FilterComponent } from '../../components/Filter/Filter';
+import { getArticles } from '../../store/articles/actions';
 import {
   FilterInitialStates,
   getInitialStateFromFilters,
-} from "../../utils/filteringUtils";
-import { filters } from "./constants";
-import { FilterStateEntry } from "../../shared/interfaces";
-import { useUrlParamsManager } from "../../hooks/useFilterManager";
+} from '../../utils/filteringUtils';
+import { filters } from './constants';
+import { FilterStateEntry } from '../../shared/interfaces';
+import { useUrlParamsManager } from '../../hooks/useFilterManager';
 
 export const HomePage: React.FC = () => {
   const dispatch = useDispatch();
   const { handleApplyFilters } = useUrlParamsManager();
-  const [queryString, setQueryString] = useState("");
+  const [queryString, setQueryString] = useState('');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [filtersState, setFiltersState] = useState(
-    getInitialStateFromFilters(filters, FilterInitialStates.EXTERNAL)
+    getInitialStateFromFilters(filters, FilterInitialStates.EXTERNAL),
   );
 
   const onApplyFilters = useCallback(
@@ -25,7 +25,7 @@ export const HomePage: React.FC = () => {
       handleApplyFilters(newFilters);
       setFiltersState(newFilters);
     },
-    [handleApplyFilters]
+    [handleApplyFilters],
   );
 
   const onButtonClick = useCallback(() => {

@@ -1,3 +1,3 @@
 export const mainRoutingConstants = {
-  home: () => "/home",
+  home: () => '/home',
 };

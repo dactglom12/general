@@ -12,9 +12,9 @@ export type ShapeDescription = {
 };
 
 export enum ShapeTypes {
-  TRIANGLE = "triangle",
-  RECTANGLE = "rectangle",
-  SQUARE = "square",
+  TRIANGLE = 'triangle',
+  RECTANGLE = 'rectangle',
+  SQUARE = 'square',
 }
 
 export abstract class AbstractShapeFactory {
@@ -26,7 +26,7 @@ export abstract class AbstractShapeFactory {
   calculateOverallArea() {
     return this.shapes.reduce(
       (overall, curr) => overall + curr.calculateArea(),
-      0
+      0,
     );
   }
 

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { mainRoutingConstants } from "../../routing/constants";
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { mainRoutingConstants } from '../../routing/constants';
 
 const REDIRECT_TIMEOUT_DURATION_MS = 5000;
 

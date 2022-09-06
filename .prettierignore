@@ -1,0 +1,5 @@
+package-lock.json
+node_modules
+.husky
+dist
+# any other unwanted files or folders

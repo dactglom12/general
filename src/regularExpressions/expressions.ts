@@ -4,8 +4,8 @@ interface Expression {
 }
 
 enum ExpressionNames {
-  BRACKETS = "brackets",
-  RANGE = "range",
+  BRACKETS = 'brackets',
+  RANGE = 'range',
 }
 
 const expressions: Record<ExpressionNames, RegExp> = {
@@ -15,12 +15,12 @@ const expressions: Record<ExpressionNames, RegExp> = {
 
 const list: Record<ExpressionNames, Expression> = {
   brackets: {
-    check: (str: string) => expressions["brackets"].test(str),
-    match: (str: string) => str.match(expressions["brackets"]),
+    check: (str: string) => expressions['brackets'].test(str),
+    match: (str: string) => str.match(expressions['brackets']),
   },
   range: {
-    check: (str: string) => expressions["range"].test(str),
-    match: (str) => str.match(expressions["range"]),
+    check: (str: string) => expressions['range'].test(str),
+    match: (str) => str.match(expressions['range']),
   },
 };
 

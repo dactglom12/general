@@ -3,10 +3,10 @@ interface ArithmeticOperation {
 }
 
 enum Operations {
-  ADDITION = "addition",
-  DIVISION = "division",
-  MULTIPLICATION = "multiplication",
-  SUBTRACTION = "subtraction",
+  ADDITION = 'addition',
+  DIVISION = 'division',
+  MULTIPLICATION = 'multiplication',
+  SUBTRACTION = 'subtraction',
 }
 
 type CalculatorConstructor = {
@@ -82,14 +82,14 @@ const calculator = new Calculator({
   operation: Operations.ADDITION,
 });
 
-console.log("ADDITION:");
+console.log('ADDITION:');
 console.log(calculator.calculate());
-console.log("SUBTRACTION:");
+console.log('SUBTRACTION:');
 calculator.setOperation(Operations.SUBTRACTION);
 console.log(calculator.calculate());
-console.log("DIVISION:");
+console.log('DIVISION:');
 calculator.setOperation(Operations.DIVISION);
 console.log(calculator.calculate());
-console.log("MULTIPLICATION:");
+console.log('MULTIPLICATION:');
 calculator.setOperation(Operations.MULTIPLICATION);
 console.log(calculator.calculate());

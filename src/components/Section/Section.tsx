@@ -1,6 +1,6 @@
-import React from "react";
-import { Paper, Stack, Typography } from "@mui/material";
-import { Droppable } from "react-beautiful-dnd";
+import React from 'react';
+import { Paper, Stack, Typography } from '@mui/material';
+import { Droppable } from 'react-beautiful-dnd';
 
 export interface ISection {
   title: string;
@@ -14,14 +14,14 @@ export const Section: React.FC<ISection> = ({ title, children }) => {
       {(provided) => (
         <Paper
           sx={{
-            width: "300px",
-            minHeight: "400px",
-            maxHeight: "500px",
-            overflowY: "auto",
-            borderRadius: "8px",
-            boxSizing: "border-box",
-            padding: "8px",
-            border: "1px solid aqua",
+            width: '300px',
+            minHeight: '400px',
+            maxHeight: '500px',
+            overflowY: 'auto',
+            borderRadius: '8px',
+            boxSizing: 'border-box',
+            padding: '8px',
+            border: '1px solid aqua',
           }}
           elevation={4}
           ref={provided.innerRef}

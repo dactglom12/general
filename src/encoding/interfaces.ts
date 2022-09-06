@@ -1,8 +1,8 @@
 export namespace Encoding {
   export enum Formats {
-    UTF8 = "utf-8",
-    Base64 = "base64",
-    Hex = "hex",
+    UTF8 = 'utf-8',
+    Base64 = 'base64',
+    Hex = 'hex',
   }
 
   export interface Options {

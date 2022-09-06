@@ -1,11 +1,11 @@
-import { Chip } from "@mui/material";
-import { Box } from "@mui/system";
-import React from "react";
-import { getOnlyNonNullFilters } from "../../hooks/useFilterManager";
-import { IFilter } from "./Filter";
+import { Chip } from '@mui/material';
+import { Box } from '@mui/system';
+import React from 'react';
+import { getOnlyNonNullFilters } from '../../hooks/useFilterManager';
+import { IFilter } from './Filter';
 
 interface IFilterChips
-  extends Pick<IFilter, "externalAppliedFilters" | "filters"> {
+  extends Pick<IFilter, 'externalAppliedFilters' | 'filters'> {
   onChipClick: (field: string) => void;
 }
 
@@ -29,7 +29,7 @@ export const FilterChips: React.FC<IFilterChips> = ({
               onDelete={() => onChipClick(key)}
             />
           );
-        }
+        },
       )}
     </Box>
   );

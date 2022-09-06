@@ -1,12 +1,12 @@
-import axios, { AxiosInstance } from "axios";
-import { CANCEL } from "redux-saga";
+import axios, { AxiosInstance } from 'axios';
+import { CANCEL } from 'redux-saga';
 
 export enum HTTPMethods {
-  GET = "GET",
-  PUT = "PUT",
-  PATCH = "PATCH",
-  POST = "POST",
-  DELETE = "DELETE",
+  GET = 'GET',
+  PUT = 'PUT',
+  PATCH = 'PATCH',
+  POST = 'POST',
+  DELETE = 'DELETE',
 }
 
 const httpMethodsWithData = [
@@ -20,7 +20,7 @@ export default function cancellableAxiosRequest(
   url: string,
   instance: AxiosInstance | null = null,
   data = {},
-  options = {}
+  options = {},
 ) {
   const axiosClient = instance ?? axios;
   const hasData = httpMethodsWithData.indexOf(method) >= 0;

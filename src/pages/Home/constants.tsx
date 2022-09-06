@@ -1,16 +1,16 @@
-import DatePicker from "@mui/lab/DatePicker";
-import { TextField } from "@mui/material";
-import moment from "moment";
-import React from "react";
-import { Filter } from "../../shared/interfaces";
-import { generateRandomUUID } from "../../utils/stringUtils";
-import { getSearchParam } from "../../utils/urlUtils";
+import DatePicker from '@mui/lab/DatePicker';
+import { TextField } from '@mui/material';
+import moment from 'moment';
+import React from 'react';
+import { Filter } from '../../shared/interfaces';
+import { generateRandomUUID } from '../../utils/stringUtils';
+import { getSearchParam } from '../../utils/urlUtils';
 
 export const filters: Filter[] = [
   {
-    stateField: "text",
-    externalInitialState: getSearchParam("text"),
-    internalInitialState: getSearchParam("text"),
+    stateField: 'text',
+    externalInitialState: getSearchParam('text'),
+    internalInitialState: getSearchParam('text'),
     render: (value, onChange) => (
       <TextField
         value={value}
@@ -21,9 +21,9 @@ export const filters: Filter[] = [
     mapValueToString: (value) => value,
   },
   {
-    stateField: "date",
-    internalInitialState: getSearchParam("date"),
-    externalInitialState: getSearchParam("date"),
+    stateField: 'date',
+    internalInitialState: getSearchParam('date'),
+    externalInitialState: getSearchParam('date'),
     render: (value, onChange) => {
       return (
         <DatePicker
@@ -38,9 +38,9 @@ export const filters: Filter[] = [
       );
     },
     mapValueToString: (value) => {
-      if (value === null) return "";
+      if (value === null) return '';
 
-      return moment(value).format("ddd, hA");
+      return moment(value).format('ddd, hA');
     },
   },
 ];

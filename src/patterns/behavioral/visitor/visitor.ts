@@ -28,7 +28,7 @@ class Car implements Transport {
   }
 
   drive() {
-    console.log("driving car");
+    console.log('driving car');
   }
 }
 class SUV implements Transport {
@@ -37,7 +37,7 @@ class SUV implements Transport {
   }
 
   drive() {
-    console.log("driving SUV");
+    console.log('driving SUV');
   }
 }
 
