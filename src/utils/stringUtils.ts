@@ -1,25 +1,25 @@
-import * as uuid from "uuid";
+import * as uuid from 'uuid';
 
-export const getLetters = (str: string) => str.split("");
+export const getLetters = (str: string) => str.split('');
 export const getCodePoint = (letter: string) => letter.charCodeAt(0);
 export const getValidBitSequence = (
   bitsSequence: string,
-  desiredLength = 8
+  desiredLength = 8,
 ) => {
   if (bitsSequence.length >= desiredLength) {
     return bitsSequence;
   }
 
   const lackingZeroesLength = desiredLength - bitsSequence.length;
-  const zeroesString = "0".repeat(lackingZeroesLength);
+  const zeroesString = '0'.repeat(lackingZeroesLength);
 
   return `${zeroesString}${bitsSequence}`;
 };
 export const getBitSequenceWithAppendedZeroes = (
   sequence: string,
-  desiredLength = 8
+  desiredLength = 8,
 ) => {
-  const zeroesString = "0".repeat(desiredLength - sequence.length);
+  const zeroesString = '0'.repeat(desiredLength - sequence.length);
 
   return `${sequence}${zeroesString}`;
 };

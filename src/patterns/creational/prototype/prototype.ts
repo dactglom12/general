@@ -43,7 +43,7 @@ export class Car implements IPrototype {
   }
 
   drive() {
-    console.log("driving");
+    console.log('driving');
   }
 }
 

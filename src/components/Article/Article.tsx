@@ -1,7 +1,7 @@
-import React from "react";
-import { Paper, Typography } from "@mui/material";
-import { Article as ArticleEntity } from "../../store/articles/slice";
-import { Draggable } from "react-beautiful-dnd";
+import React from 'react';
+import { Paper, Typography } from '@mui/material';
+import { Article as ArticleEntity } from '../../store/articles/slice';
+import { Draggable } from 'react-beautiful-dnd';
 
 interface IArticle {
   article: ArticleEntity;

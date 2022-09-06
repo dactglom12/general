@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ArticleSource {
   id: string;
@@ -28,7 +28,7 @@ const initialState: ArticlesState = {
   error: null,
 };
 
-const name = "articles";
+const name = 'articles';
 
 export const articlesSlice = createSlice({
   name,
@@ -39,7 +39,7 @@ export const articlesSlice = createSlice({
     },
     getArticlesSuccess: (
       state,
-      action: PayloadAction<{ articles: Article[] }>
+      action: PayloadAction<{ articles: Article[] }>,
     ) => {
       state.articles = action.payload.articles;
       state.isLoading = false;

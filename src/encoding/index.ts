@@ -1,8 +1,8 @@
-import { getCodePoint, getLetters } from "../utils/stringUtils";
-import { Encoder } from "./Encoder";
-import { Encoding } from "./interfaces";
+import { getCodePoint, getLetters } from '../utils/stringUtils';
+import { Encoder } from './Encoder';
+import { Encoding } from './interfaces';
 
-const string = "hey there!";
+const string = 'hey there!';
 
 const utf8Representation = Encoder.encode(string, {
   base: 16,

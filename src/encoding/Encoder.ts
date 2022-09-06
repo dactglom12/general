@@ -1,5 +1,5 @@
-import { formats } from "./constants";
-import { Encoding } from "./interfaces";
+import { formats } from './constants';
+import { Encoding } from './interfaces';
 
 export class Encoder {
   static stringToBitSequence(str: string): string {
@@ -9,7 +9,7 @@ export class Encoder {
       bits.push(letter.charCodeAt(0).toString(2));
     }
 
-    return bits.join(" ");
+    return bits.join(' ');
   }
 
   static encode(str: string, options?: Encoding.Options) {

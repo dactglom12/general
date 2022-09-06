@@ -51,14 +51,14 @@ class SuperSenderDecorator extends BaseDecorator {
   }
 }
 
-console.log("Simple sender");
+console.log('Simple sender');
 const simpleSender = new BaseSender();
-simpleSender.send("Here I am, I am base");
-console.log("--------------------------------------");
+simpleSender.send('Here I am, I am base');
+console.log('--------------------------------------');
 
-console.log("Super Sender");
+console.log('Super Sender');
 const extraSenderDecorator = new ExtraSenderDecorator(simpleSender);
 
 const superSenderDecorator = new SuperSenderDecorator(extraSenderDecorator);
 
-superSenderDecorator.send("HAHAH, I am SUPER");
+superSenderDecorator.send('HAHAH, I am SUPER');

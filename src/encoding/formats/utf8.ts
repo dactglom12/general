@@ -1,5 +1,5 @@
-import { getCodePoint, getLetters } from "../../utils/stringUtils";
-import { Encoding } from "../interfaces";
+import { getCodePoint, getLetters } from '../../utils/stringUtils';
+import { Encoding } from '../interfaces';
 
 export class UTF8 extends Encoding.Format {
   static encode(str: string, options?: Encoding.Options): string {
@@ -9,17 +9,17 @@ export class UTF8 extends Encoding.Format {
 
         const utfRepresentation = UTF8.getOctetsRepresentation(
           codePoint,
-          options.base
-        ).join(" ");
+          options.base,
+        ).join(' ');
 
         return result.concat(`${utfRepresentation} `);
-      }, "")
+      }, '')
       .slice(0, -1);
   }
 
   private static getOctetsRepresentation(
     codePoint: number,
-    base = 10
+    base = 10,
   ): string[] {
     const octetsNumber = UTF8.getOctetsNumber(codePoint);
 

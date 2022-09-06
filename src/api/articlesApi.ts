@@ -1,11 +1,11 @@
-import axios, { AxiosResponse } from "axios";
-import { Article } from "../store/articles/slice";
+import axios, { AxiosResponse } from 'axios';
+import { Article } from '../store/articles/slice';
 import cancellableAxiosRequest, {
   HTTPMethods,
-} from "../utils/cancellableAxiosRequest";
+} from '../utils/cancellableAxiosRequest';
 
 const articlesAxiosInstance = axios.create({
-  baseURL: "https://newsapi.org/v2",
+  baseURL: 'https://newsapi.org/v2',
 });
 
 articlesAxiosInstance.interceptors.request.use((request) => {
@@ -20,15 +20,15 @@ export interface GetArticlesRequestParams {
 
 export class ArticlesApi {
   static async getArticles(
-    params: GetArticlesRequestParams
+    params: GetArticlesRequestParams,
   ): Promise<AxiosResponse<Article[]>> {
     return cancellableAxiosRequest(
       HTTPMethods.GET,
       `/everything?${new URLSearchParams({
         q: params.queryString,
-        from: params.from ?? "",
+        from: params.from ?? '',
       })}`,
-      articlesAxiosInstance
+      articlesAxiosInstance,
     );
   }
 }

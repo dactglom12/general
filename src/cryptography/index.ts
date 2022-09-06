@@ -1,20 +1,20 @@
-import elliptic from "elliptic";
-import CryptoJS from "crypto-js";
+import elliptic from 'elliptic';
+import CryptoJS from 'crypto-js';
 
 const testInputData = {
-  t: "ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ",
-  name: "Volodymyr",
-  surname: "Molchanov",
-  sensitivePassword: "А такую кодировку?",
+  t: 'ЫЫЫЫЫЫЫЫЫЫЫЫЫЫЫ',
+  name: 'Volodymyr',
+  surname: 'Molchanov',
+  sensitivePassword: 'А такую кодировку?',
 };
 
 const EC = elliptic.ec;
-const mockAuthToken = "some_random_token";
-const mockProtocolId = "0.0.1";
-const mockServiceKeyPairId = "214125125";
+const mockAuthToken = 'some_random_token';
+const mockProtocolId = '0.0.1';
+const mockServiceKeyPairId = '214125125';
 
 class Encoder {
-  private static EC = new EC("secp256k1");
+  private static EC = new EC('secp256k1');
 
   private static getByteArray(input: any) {
     const stringifiedValue = JSON.stringify(input);
@@ -40,19 +40,19 @@ class Encoder {
       clientPrivateKeyByteArray: Encoder.parseByteArray(
         secureRandomNumbers,
         0,
-        32
+        32,
       ),
       dataEncryptionKey: Encoder.parseByteArray(secureRandomNumbers, 32, 64),
       dataEncryptionInitVector: Encoder.parseByteArray(
         secureRandomNumbers,
         64,
-        80
+        80,
       ),
       macKey: Encoder.parseByteArray(secureRandomNumbers, 80, 112),
       keyEncryptionInitVector: Encoder.parseByteArray(
         secureRandomNumbers,
         112,
-        128
+        128,
       ),
     };
   }
@@ -60,8 +60,8 @@ class Encoder {
   private static getServiceKeyPair(protocolId: string) {
     // hex
     const hardcodedServicePublicKey =
-      "04d81490cae828c9270f6e9f4c0a13d6a4ff62c258ca69042315857ce0d0899322c38dc11cc26cb06d4e78b11b658b67fa1b6eb5f2c78579aea3e4bf229e14e5fa";
-    const keyPair = Encoder.EC.keyFromPublic(hardcodedServicePublicKey, "hex");
+      '04d81490cae828c9270f6e9f4c0a13d6a4ff62c258ca69042315857ce0d0899322c38dc11cc26cb06d4e78b11b658b67fa1b6eb5f2c78579aea3e4bf229e14e5fa';
+    const keyPair = Encoder.EC.keyFromPublic(hardcodedServicePublicKey, 'hex');
     console.log(keyPair.validate());
 
     return {
@@ -73,9 +73,9 @@ class Encoder {
   }
 
   private static getClientKeyPair(privateKeyByteArray: Uint8Array) {
-    const keyPair = Encoder.EC.keyFromPrivate(privateKeyByteArray, "hex");
-    const privateKey = keyPair.getPrivate().toString("hex");
-    const publicKey = keyPair.getPublic().encode("hex", false);
+    const keyPair = Encoder.EC.keyFromPrivate(privateKeyByteArray, 'hex');
+    const privateKey = keyPair.getPrivate().toString('hex');
+    const publicKey = keyPair.getPublic().encode('hex', false);
 
     return {
       privateKey,
@@ -94,7 +94,7 @@ class Encoder {
 
   private static encryptAES(
     data: string,
-    options: { key: string; vector: string }
+    options: { key: string; vector: string },
   ) {
     const keyWordArray = CryptoJS.enc.Utf8.parse(options.key);
     const vectorWordArray = CryptoJS.enc.Utf8.parse(options.vector);
@@ -110,7 +110,7 @@ class Encoder {
 
   private static getSharedSecret(
     clientKeyPair: elliptic.ec.KeyPair,
-    serviceKeyPair: elliptic.ec.KeyPair
+    serviceKeyPair: elliptic.ec.KeyPair,
   ) {
     return clientKeyPair.derive(serviceKeyPair.getPublic());
   }
@@ -134,23 +134,23 @@ class Encoder {
     });
     const sharedSecret = Encoder.getSharedSecret(
       clientKeyPair.keyPair,
-      serviceKeyPair.keyPair
+      serviceKeyPair.keyPair,
     );
     const sharedSecretAESOptions = {
-      key: sharedSecret.toString("hex"),
+      key: sharedSecret.toString('hex'),
       vector: keyEncryptionInitVector.toString(),
     };
     const encryptedDataEncryptionKey = Encoder.encryptAES(
       dataEncryptionKey.toString(),
-      sharedSecretAESOptions
+      sharedSecretAESOptions,
     );
     const encryptedDataEncryptionInitVector = Encoder.encryptAES(
       dataEncryptionInitVector.toString(),
-      sharedSecretAESOptions
+      sharedSecretAESOptions,
     );
     const encryptedMacKey = Encoder.encryptAES(
       macKey.toString(),
-      sharedSecretAESOptions
+      sharedSecretAESOptions,
     );
 
     const requestDatagram = {
@@ -158,7 +158,7 @@ class Encoder {
       keyPairId: mockProtocolId,
       clientEphPubKey: clientKeyPair.publicKey,
       encryptedDataEncryptionKey: encryptedDataEncryptionKey.toString(
-        CryptoJS.format.Hex
+        CryptoJS.format.Hex,
       ),
       encryptedDataEncryptionInitVector:
         encryptedDataEncryptionInitVector.toString(CryptoJS.format.Hex),
@@ -169,13 +169,13 @@ class Encoder {
 
     const requestDatagramSignature = CryptoJS.HmacSHA256(
       JSON.stringify(requestDatagram),
-      macKey.toString()
+      macKey.toString(),
     );
 
     return {
       ...requestDatagram,
       requestDatagramSignature: requestDatagramSignature.toString(
-        CryptoJS.enc.Hex
+        CryptoJS.enc.Hex,
       ),
     };
   }

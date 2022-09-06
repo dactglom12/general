@@ -5,21 +5,21 @@ import {
   getLetters,
   getValidBitSequence,
   isLastElement,
-} from "../../utils/stringUtils";
+} from '../../utils/stringUtils';
 import {
   base64AlphabetObject,
   oneByteLengthInBits,
   threeBytesBitSequenceLength,
-} from "../constants";
-import { Encoding } from "../interfaces";
+} from '../constants';
+import { Encoding } from '../interfaces';
 
 export class Base64 extends Encoding.Format {
   static encode(str: string, options?: Encoding.Options): string {
-    let result = "";
+    let result = '';
     // continuation bits string
     // it gets concatenated with letter's bit representation
     // if it is longer than 24 -> calculate base64 for 24 bits and save rest
-    let sequence = "";
+    let sequence = '';
 
     getLetters(str).forEach((letter, index, arr) => {
       const codePoint = getCodePoint(letter);
@@ -32,7 +32,7 @@ export class Base64 extends Encoding.Format {
       if (isLastElement(arr, index) && bytes < 3) {
         const toEncode = getBitSequenceWithAppendedZeroes(
           sequence,
-          threeBytesBitSequenceLength
+          threeBytesBitSequenceLength,
         );
 
         result += Base64.getBase64Code(toEncode);
@@ -51,10 +51,10 @@ export class Base64 extends Encoding.Format {
         else {
           const toEncode = getBitSequenceWithAppendedZeroes(
             sequence,
-            threeBytesBitSequenceLength
+            threeBytesBitSequenceLength,
           );
 
-          sequence = "";
+          sequence = '';
 
           result += Base64.getBase64Code(toEncode);
         }
@@ -66,7 +66,7 @@ export class Base64 extends Encoding.Format {
 
   private static getBase64Code(bits: string): string {
     if (bits.length !== threeBytesBitSequenceLength) {
-      throw new Error("Three bytes are expected");
+      throw new Error('Three bytes are expected');
     }
 
     const chunks = [
@@ -77,16 +77,16 @@ export class Base64 extends Encoding.Format {
     ];
 
     return chunks.reduce((result, chunk) => {
-      const isFullZeroSequence = chunk.indexOf("1") === -1;
+      const isFullZeroSequence = chunk.indexOf('1') === -1;
 
       if (isFullZeroSequence) {
-        return result + "=";
+        return result + '=';
       }
 
       const position = parseInt(chunk, 2);
 
       return result + base64AlphabetObject[position];
-    }, "");
+    }, '');
   }
 
   private static getChunk(bits: string, start: number, end?: number) {

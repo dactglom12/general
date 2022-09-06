@@ -1,4 +1,4 @@
-import { Shape, AbstractShapeFactory } from "./interfaces";
+import { Shape, AbstractShapeFactory } from './interfaces';
 
 // Shape - general interface which must be followed by all subclasses
 // TriangleFactory, RectangleFactory, SquareFactory -> classic implementation of the pattern (as far as I understand)

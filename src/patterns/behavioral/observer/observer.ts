@@ -78,15 +78,15 @@ class UserSubscriber implements Subscriber {
   }
 }
 
-const [subscriber1, subscriber2] = ["1", "2"].map((id) => {
+const [subscriber1, subscriber2] = ['1', '2'].map((id) => {
   return new UserSubscriber(id);
 });
 
 const initialUserData: UserData = {
-  address: "Brighton Beach, 2nd block",
+  address: 'Brighton Beach, 2nd block',
   age: 20,
-  name: "Andrew",
-  surname: "Johnson",
+  name: 'Andrew',
+  surname: 'Johnson',
 };
 
 const userService = new UserService(initialUserData);
@@ -95,5 +95,5 @@ userService.attach(subscriber1);
 userService.attach(subscriber2);
 
 console.log(userService.getUserData());
-console.log("Today is my birthday!");
+console.log('Today is my birthday!');
 userService.setUserData({ age: userService.getUserData().age + 1 });

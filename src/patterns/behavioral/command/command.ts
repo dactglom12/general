@@ -17,7 +17,7 @@ class SimpleCommand implements Command {
 
   public execute(): void {
     console.log(
-      `SimpleCommand: See, I can do simple things like printing (${this.payload})`
+      `SimpleCommand: See, I can do simple things like printing (${this.payload})`,
     );
   }
 }
@@ -51,7 +51,7 @@ class ComplexCommand implements Command {
    */
   public execute(): void {
     console.log(
-      "ComplexCommand: Complex stuff should be done by a receiver object."
+      'ComplexCommand: Complex stuff should be done by a receiver object.',
     );
     this.receiver.doSomething(this.a);
     this.receiver.doSomethingElse(this.b);
@@ -98,14 +98,14 @@ class Invoker {
    * Отправитель передаёт запрос получателю косвенно, выполняя команду.
    */
   public doSomethingImportant(): void {
-    console.log("Invoker: Does anybody want something done before I begin?");
+    console.log('Invoker: Does anybody want something done before I begin?');
     if (this.isCommand(this.onStart)) {
       this.onStart.execute();
     }
 
-    console.log("Invoker: ...doing something really important...");
+    console.log('Invoker: ...doing something really important...');
 
-    console.log("Invoker: Does anybody want something done after I finish?");
+    console.log('Invoker: Does anybody want something done after I finish?');
     if (this.isCommand(this.onFinish)) {
       this.onFinish.execute();
     }
@@ -120,8 +120,8 @@ class Invoker {
  * Клиентский код может параметризовать отправителя любыми командами.
  */
 const invoker = new Invoker();
-invoker.setOnStart(new SimpleCommand("Say Hi!"));
+invoker.setOnStart(new SimpleCommand('Say Hi!'));
 const receiver = new Receiver();
-invoker.setOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
+invoker.setOnFinish(new ComplexCommand(receiver, 'Send email', 'Save report'));
 
 invoker.doSomethingImportant();

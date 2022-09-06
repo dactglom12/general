@@ -1,15 +1,15 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState } from 'react';
 import {
   FilterInitialStates,
   getInitialStateFromFilters,
-} from "../../utils/filteringUtils";
+} from '../../utils/filteringUtils';
 import {
   Filter,
   FilterStateEntry,
   WithOpenCloseState,
-} from "../../shared/interfaces";
-import { FilterChips } from "./FillterChips";
-import { FilterDrawer } from "./FIlterDrawer";
+} from '../../shared/interfaces';
+import { FilterChips } from './FillterChips';
+import { FilterDrawer } from './FIlterDrawer';
 
 export interface IFilter extends WithOpenCloseState {
   filters: Filter[];
@@ -25,7 +25,7 @@ export const FilterComponent: React.FC<IFilter> = ({
   externalAppliedFilters,
 }) => {
   const [localFiltersState, setLocalFilterState] = useState(
-    getInitialStateFromFilters(filters, FilterInitialStates.INTERNAL)
+    getInitialStateFromFilters(filters, FilterInitialStates.INTERNAL),
   );
 
   const handleChangeLocalFilter = useCallback(
@@ -34,7 +34,7 @@ export const FilterComponent: React.FC<IFilter> = ({
       currentStateCopy[field] = newValue;
       setLocalFilterState(currentStateCopy);
     },
-    [localFiltersState]
+    [localFiltersState],
   );
 
   const handleChipClick = useCallback(
@@ -53,7 +53,7 @@ export const FilterComponent: React.FC<IFilter> = ({
       });
       setLocalFilterState(currentStateCopy);
     },
-    [localFiltersState, filters, onApplyFilters, externalAppliedFilters]
+    [localFiltersState, filters, onApplyFilters, externalAppliedFilters],
   );
 
   return (

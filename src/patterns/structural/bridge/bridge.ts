@@ -32,7 +32,7 @@ class SimpleRemote implements IRemote {
 
   disabledGuard(func: Function) {
     if (!this.device.isEnabled()) {
-      throw new Error("Device is off, turn it on first");
+      throw new Error('Device is off, turn it on first');
     }
 
     func();
@@ -52,25 +52,25 @@ class SimpleRemote implements IRemote {
 
   decreaseVolume() {
     this.disabledGuard(() =>
-      this.device.setVolume(this.device.getVolume() - 10)
+      this.device.setVolume(this.device.getVolume() - 10),
     );
   }
 
   nextChannel() {
     this.disabledGuard(() =>
-      this.device.setChannel(this.device.getChannel() + 1)
+      this.device.setChannel(this.device.getChannel() + 1),
     );
   }
 
   increaseVolume() {
     this.disabledGuard(() =>
-      this.device.setVolume(this.device.getVolume() + 10)
+      this.device.setVolume(this.device.getVolume() + 10),
     );
   }
 
   previousChannel() {
     this.disabledGuard(() =>
-      this.device.setChannel(this.device.getChannel() - 1)
+      this.device.setChannel(this.device.getChannel() - 1),
     );
   }
 

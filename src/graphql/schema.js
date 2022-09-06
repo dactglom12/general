@@ -1,4 +1,4 @@
-const { buildSchema } = require("graphql");
+const { buildSchema } = require('graphql');
 
 // type -> object (or class in terms of OOP)
 // two top-level types - Query, Mutation

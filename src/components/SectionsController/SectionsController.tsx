@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Box, TextField } from "@mui/material";
-import { Section } from "../Section/Section";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { Article } from "../Article/Article";
-import { Article as IArticle } from "../../store/articles/slice";
+import React, { useEffect, useState } from 'react';
+import { Box, TextField } from '@mui/material';
+import { Section } from '../Section/Section';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { Article } from '../Article/Article';
+import { Article as IArticle } from '../../store/articles/slice';
 
 interface ISectionsController {}
 
-const ALL_ARTICLES_SECTION_TITLE = "All Articles";
+const ALL_ARTICLES_SECTION_TITLE = 'All Articles';
 
 export const SectionsController: React.FC<ISectionsController> = () => {
   const { articles } = useSelector((state: RootState) => state.articles);
-  const [newSectionTitle, setNewSectionTitle] = useState("");
+  const [newSectionTitle, setNewSectionTitle] = useState('');
   const [sections, setSections] = useState<Map<string, IArticle[]>>(() => {
     const sectionsMap = new Map();
     sectionsMap.set(ALL_ARTICLES_SECTION_TITLE, []);
@@ -40,7 +40,7 @@ export const SectionsController: React.FC<ISectionsController> = () => {
             })}
           </Section>
         );
-      }
+      },
     );
   };
 
@@ -59,7 +59,7 @@ export const SectionsController: React.FC<ISectionsController> = () => {
           value={newSectionTitle}
           onChange={(e) => setNewSectionTitle(e.currentTarget.value)}
           onKeyDown={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === 'Enter') {
               addSection();
             }
           }}

@@ -23,7 +23,7 @@ class Database {
         Database.db = new Database(url);
       } else {
         throw new Error(
-          "You have no initialized instances and you have not provided any url"
+          'You have no initialized instances and you have not provided any url',
         );
       }
     }
@@ -32,6 +32,6 @@ class Database {
   }
 }
 
-const db1 = Database.init("https://my-url.com");
+const db1 = Database.init('https://my-url.com');
 const db2 = Database.init();
 const db3 = Database.init();

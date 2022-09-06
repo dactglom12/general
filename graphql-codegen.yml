@@ -1,7 +1,7 @@
-schema: "src/graphql/schema.js"
+schema: 'src/graphql/schema.js'
 documents:
-  - "src/**/*.{ts, tsx}"
-  - "!src/**/*-graphql.tsx"
+  - 'src/**/*.{ts, tsx}'
+  - '!src/**/*-graphql.tsx'
 generates:
   src/base-graphql.ts:
     plugins:
