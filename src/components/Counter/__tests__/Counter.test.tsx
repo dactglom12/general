@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Counter, Props } from '../Counter';
 import { testIds } from '../constants';
-import "@testing-library/jest-dom/extend-expect";
+import '@testing-library/jest-dom/extend-expect';
 
 const setUp = (props?: Props) => render(<Counter {...props} />);
 

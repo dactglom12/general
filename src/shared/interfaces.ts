@@ -15,4 +15,6 @@ export interface WithOpenCloseState {
 
 export type FilterStateEntry = Record<string, any>;
 
-export type ComponentWithChildren<T = {}> = React.FC<T & { children?: React.ReactNode }>;
+export type ComponentWithChildren<T = {}> = React.FC<
+  T & { children?: React.ReactNode }
+>;
