@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 require('dotenv').config();
 const autoprefixer = require('autoprefixer');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entryFileName = 'index.tsx';
 const outputFileName = 'bundle.js';
@@ -66,6 +67,20 @@ module.exports = (env) => {
       }),
       autoprefixer,
       new ESLintPlugin(eslintOptions),
+      new HtmlWebpackPlugin({
+        templateContent: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Webpack App</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="/bundle.js"></script></head>
+          <body>
+            <div id="root"></div>
+          </body>
+        </html>
+`,
+      }),
     ],
   };
 };

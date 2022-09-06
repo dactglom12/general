@@ -8,8 +8,9 @@ import { Header } from './components/Header/Header';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterMoment from '@mui/lab/AdapterMoment';
 import './ADA/problemSolvingPatterns/index';
+import { ComponentWithChildren } from './shared/interfaces';
 
-const Wrapper: React.FC = ({ children }) => (
+const Wrapper: ComponentWithChildren = ({ children }) => (
   <div style={{ margin: '88px 24px 0 24px' }}>{children}</div>
 );
 

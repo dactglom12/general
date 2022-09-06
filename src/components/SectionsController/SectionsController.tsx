@@ -5,12 +5,15 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { Article } from '../Article/Article';
 import { Article as IArticle } from '../../store/articles/slice';
+import { ComponentWithChildren } from '../../shared/interfaces';
 
 interface ISectionsController {}
 
 const ALL_ARTICLES_SECTION_TITLE = 'All Articles';
 
-export const SectionsController: React.FC<ISectionsController> = () => {
+export const SectionsController: ComponentWithChildren<
+  ISectionsController
+> = () => {
   const { articles } = useSelector((state: RootState) => state.articles);
   const [newSectionTitle, setNewSectionTitle] = useState('');
   const [sections, setSections] = useState<Map<string, IArticle[]>>(() => {

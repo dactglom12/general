@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper, Stack, Typography } from '@mui/material';
 import { Droppable } from 'react-beautiful-dnd';
+import { ComponentWithChildren } from '../../shared/interfaces';
 
 export interface ISection {
   title: string;
@@ -8,7 +9,10 @@ export interface ISection {
 
 const getSectionDroppableId = (title: string) => `lets-test-section-${title}`;
 
-export const Section: React.FC<ISection> = ({ title, children }) => {
+export const Section: ComponentWithChildren<ISection> = ({
+  title,
+  children,
+}) => {
   return (
     <Droppable droppableId={getSectionDroppableId(title)}>
       {(provided) => (
