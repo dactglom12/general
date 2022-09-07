@@ -102,7 +102,8 @@
     "dev": "webpack-dev-server",
     "graphql-codegen": "graphql-codegen --config graphql-codegen.yml",
     "build": "npx webpack --config webpack.config.cjs",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "precommit": "npm run test && npx lint-staged"
   },
   "keywords": [],
   "author": "",
