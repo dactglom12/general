@@ -1,8 +1,7 @@
 import React from 'react';
 import { mainRoutingConstants } from './constants';
 import { HomePage } from '../pages/Home/Home';
-import { NotFoundPage } from '../pages/404/404';
-import { Route } from 'react-router';
+import { Redirect, Route } from 'react-router';
 import { ComponentWithChildren } from '../shared/interfaces';
 
 interface IRoute {
@@ -13,7 +12,7 @@ interface IRoute {
 
 const notFoundRoute: IRoute = {
   path: '*',
-  render: (props) => <NotFoundPage {...props} />,
+  render: () => <Redirect to={mainRoutingConstants.home()} />,
 };
 
 const routes: IRoute[] = [
