@@ -15,20 +15,14 @@ const Wrapper: ComponentWithChildren = ({ children }) => (
 );
 
 export const App: React.FC = () => {
-  const onDragEnd = useCallback((result) => {
-    console.log(result);
-  }, []);
-
   return (
     <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <StoreProvider store={store}>
-          <BrowserRouter>
-            <Header title={'Dactglom Playground'} />
-            <Switch>{renderRoutes(Wrapper)}</Switch>
-          </BrowserRouter>
-        </StoreProvider>
-      </DragDropContext>
+      <StoreProvider store={store}>
+        <BrowserRouter>
+          <Header title={'Dactglom Playground'} />
+          <Switch>{renderRoutes(Wrapper)}</Switch>
+        </BrowserRouter>
+      </StoreProvider>
     </LocalizationProvider>
   );
 };
