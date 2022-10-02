@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface Filter {
   stateField: string;
   render: (value, onChange) => JSX.Element;
@@ -12,3 +14,7 @@ export interface WithOpenCloseState {
 }
 
 export type FilterStateEntry = Record<string, any>;
+
+export type ComponentWithChildren<T = {}> = React.FC<
+  T & { children?: React.ReactNode }
+>;
