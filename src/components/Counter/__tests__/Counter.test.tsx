@@ -16,4 +16,14 @@ describe('Given Counter component', () => {
 
     expect(getByTestId(testIds.counter)).toHaveTextContent('1');
   });
+
+  it('When decrement button is clicked, it should display correct counter value', () => {
+    const { getByTestId } = setUp();
+
+    const decrementButton = getByTestId(testIds.decrement);
+
+    fireEvent.click(decrementButton);
+
+    expect(getByTestId(testIds.counter)).toHaveTextContent('-1');
+  });
 });
