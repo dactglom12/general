@@ -17,7 +17,7 @@ pipeline {
         sh 'npm run test'
         sh 'curl -Os https://uploader.codecov.io/latest/linux/codecov'
         sh 'chmod +x codecov'
-        sh './codecov'
+        sh './codecov -t $CODECOV_TOKEN'
       }
     }
 
