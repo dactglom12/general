@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  environment {
+    CODECOV_TOKEN = '6ad9bfd2-d8a7-495e-9f51-8dda432874b8'
+  }
+
   stages {
     stage('build') {
       steps {
@@ -11,6 +15,7 @@ pipeline {
     stage('test') {
       steps {
         sh 'npm run test'
+        sh 'curl -Os https://uploader.codecov.io/latest/linux/codecov chmod +x codecov ./codecov'
       }
     }
 
