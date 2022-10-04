@@ -1,13 +1,11 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Provider as StoreProvider } from 'react-redux';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import { renderRoutes } from './routing/routes';
 import { store } from './store/store';
-import { DragDropContext } from 'react-beautiful-dnd';
 import { Header } from './components/Header/Header';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterMoment from '@mui/lab/AdapterMoment';
-import './ADA/problemSolvingPatterns/index';
 import { ComponentWithChildren } from './shared/interfaces';
 
 const Wrapper: ComponentWithChildren = ({ children }) => (
