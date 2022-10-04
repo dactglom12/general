@@ -35,7 +35,6 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, outputDirectoryName),
       filename: outputFileName,
-      publicPath: '/',
     },
     mode,
     module: {
@@ -74,9 +73,10 @@ module.exports = (env) => {
           <head>
             <meta charset="utf-8">
             <title>Webpack App</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="/bundle.js"></script></head>
+          <meta name="viewport" content="width=device-width, initial-scale=1"></head>
           <body>
             <div id="root"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_KEY}&libraries=places,geometry&solution_channel=GMP_QB_locatorplus_v6_cABCDEF" async defer></script>
           </body>
         </html>
 `,

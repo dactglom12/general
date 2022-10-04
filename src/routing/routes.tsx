@@ -3,6 +3,7 @@ import { mainRoutingConstants } from './constants';
 import { HomePage } from '../pages/Home/Home';
 import { Redirect, Route } from 'react-router';
 import { ComponentWithChildren } from '../shared/interfaces';
+import { MapPage } from '../pages/Map/Map';
 
 interface IRoute {
   path: string;
@@ -20,6 +21,11 @@ const routes: IRoute[] = [
     path: mainRoutingConstants.home(),
     exact: true,
     render: (props) => <HomePage {...props} />,
+  },
+  {
+    path: mainRoutingConstants.maps(),
+    exact: true,
+    render: (props) => <MapPage {...props} />,
   },
   notFoundRoute,
 ];
