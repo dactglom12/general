@@ -5,6 +5,12 @@ export const HomePage: React.FC = () => {
     <>
       <div>Home Page</div>
       <span>Another Caption</span>
+      <div>
+        Hello from{' '}
+        <b>
+          <code>Jenkins</code>
+        </b>
+      </div>
     </>
   );
 };
