@@ -32,7 +32,7 @@ pipeline {
         sh 'echo "Building app..."'
         sh 'npm run build'
         sh 'echo "Sending files to remote server"'
-        sh 'scp -i ~/.ssh/id_rsa dist/* dactglom_cloud@34.116.216.155:/var/www/34.116.216.155'
+        sh 'sudo scp -i /home/dactglom_cloud/.ssh/id_rsa dist/* dactglom_cloud@34.116.216.155:/var/www/34.116.216.155'
       }
     }
   }
