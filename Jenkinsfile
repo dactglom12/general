@@ -8,13 +8,16 @@ pipeline {
   stages {
     stage('build') {
       steps {
+        sh 'echo "Installing modules..."'
         sh 'npm install'
       }
     }
 
     stage('test') {
       steps {
+        sh 'echo "Running tests"'
         sh 'npm run test'
+        sh 'echo "Sending codecoverage report..."'
         sh 'curl -Os https://uploader.codecov.io/latest/linux/codecov'
         sh 'chmod +x codecov'
         sh './codecov -t $CODECOV_TOKEN'
@@ -22,8 +25,14 @@ pipeline {
     }
 
     stage('deploy') {
+      when {
+        branch 'main'
+      }
       steps {
-        echo 'Deploying the application...'
+        sh 'echo "Building app..."'
+        sh 'npm run build'
+        sh 'echo "Sending files to remote server"'
+        sh 'scp dist/* dactglom_cloud@34.116.211.25:/var/www/34.116.211.25'
       }
     }
   }
