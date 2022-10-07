@@ -23,7 +23,8 @@ pipeline {
 
     stage('deploy') {
       steps {
-        echo 'Deploying the application...'
+        sh 'npm run build'
+        sh 'echo "$PWD"'
       }
     }
   }
