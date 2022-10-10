@@ -35,15 +35,15 @@ pipeline {
         sh 'sudo scp -i /home/dactglom_cloud/.ssh/id_rsa dist/* dactglom_cloud@34.116.216.155:/var/www/34.116.216.155'
       }
     }
+  }
 
-    post {
-      always {
-        dir ('node_modules') {
-          deleteDir()
-        }
-        dir ('dist') {
-          deleteDir()
-        }
+  post {
+    always {
+      dir ('node_modules') {
+        deleteDir()
+      }
+      dir ('dist') {
+        deleteDir()
       }
     }
   }
