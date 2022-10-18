@@ -22,8 +22,6 @@ class HashTable<T = number> {
   set(key: string, value: T) {
     const index = this.hash(key);
 
-    console.log(index);
-
     if (!this.keyMap[index]) {
       this.keyMap[index] = [];
     }
